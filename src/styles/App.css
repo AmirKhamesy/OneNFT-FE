@@ -78,9 +78,12 @@
   padding-bottom: 30px;
 }
 
-.twitter-logo {
+.github-logo {
   width: 35px;
+  margin-right: 10px;
   height: 35px;
+  filter: invert(80%) sepia(0%) saturate(7500%) hue-rotate(254deg)
+    brightness(117%) contrast(94%);
 }
 
 .footer-text {
