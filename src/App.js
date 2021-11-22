@@ -17,44 +17,6 @@ const App = () => {
   const [currentAccount, setCurrentAccount] = useState("");
 
 
-  const checkIfWalletIsConnected = async () => {
-    /*
-    * First make sure we have access to window.ethereum
-    */
-    const { ethereum } = window;
-
-    if (!ethereum) {
-      console.log("Make sure you have metamask!");
-      return;
-    } else {
-      console.log("We have the ethereum object", ethereum);
-    }
-    /*
-   * Check if we're authorized to access the user's wallet
-   */
-    const accounts = await ethereum.request({ method: 'eth_accounts' });
-    let chainId = await ethereum.request({ method: 'eth_chainId' });
-    console.log("Connected to chain " + chainId);
-
-    // String, hex code of the chainId of the Rinkebey test network
-    const rinkebyChainId = "0x4";
-    if (chainId !== rinkebyChainId) {
-      alert("You are not connected to the Rinkeby Test Network!");
-    }
-    /*
-    * User can have multiple authorized accounts, we grab the first one if its there!
-    */
-    if (accounts.length !== 0) {
-      const account = accounts[0];
-      console.log("Found an authorized account:", account);
-      setCurrentAccount(account)
-      //  This is for the case where a user comes to our site
-      // and ALREADY had their wallet connected + authorized.
-      setupEventListener()
-    } else {
-      console.log("No authorized account found")
-    }
-  }
 
   const connectWallet = async () => {
     try {
@@ -131,15 +93,53 @@ const App = () => {
     }
   }
 
-  useEffect(() => {
-    checkIfWalletIsConnected();
-  }, [currentAccount])
 
   const renderNotConnectedContainer = () => (
     <button onClick={connectWallet} className="cta-button connect-wallet-button">
       Connect to Wallet
     </button>
   );
+  useEffect(() => {
+    const checkIfWalletIsConnected = async () => {
+      /*
+      * First make sure we have access to window.ethereum
+      */
+      const { ethereum } = window;
+
+      if (!ethereum) {
+        console.log("Make sure you have metamask!");
+        return;
+      } else {
+        console.log("We have the ethereum object", ethereum);
+      }
+      /*
+     * Check if we're authorized to access the user's wallet
+     */
+      const accounts = await ethereum.request({ method: 'eth_accounts' });
+      let chainId = await ethereum.request({ method: 'eth_chainId' });
+      console.log("Connected to chain " + chainId);
+
+      // String, hex code of the chainId of the Rinkebey test network
+      const rinkebyChainId = "0x4";
+      if (chainId !== rinkebyChainId) {
+        alert("You are not connected to the Rinkeby Test Network!");
+      }
+      /*
+      * User can have multiple authorized accounts, we grab the first one if its there!
+      */
+      if (accounts.length !== 0) {
+        const account = accounts[0];
+        console.log("Found an authorized account:", account);
+        setCurrentAccount(account)
+        //  This is for the case where a user comes to our site
+        // and ALREADY had their wallet connected + authorized.
+        setupEventListener()
+      } else {
+        console.log("No authorized account found")
+      }
+    }
+    checkIfWalletIsConnected();
+  }, [])
 
   // const renderMintUI = () => (
   //   <button onClick={askContractToMintNft} className="cta-button connect-wallet-button">
