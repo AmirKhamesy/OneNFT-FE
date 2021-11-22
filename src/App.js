@@ -5,8 +5,8 @@ import React from "react";
 // Constants
 const GITHUB_HANDLE = 'partrima';
 const GITHUB_LINK = `https://github.com/${GITHUB_HANDLE}`;
-const OPENSEA_LINK = '';
-const TOTAL_MINT_COUNT = 50;
+// const OPENSEA_LINK = '';
+// const TOTAL_MINT_COUNT = 50;
 
 const App = () => {
   // Render Methods
