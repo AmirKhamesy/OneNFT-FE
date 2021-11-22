@@ -7,8 +7,8 @@ import myEpicNft from './utils/MyEpicNFT.json'
 // Constants
 const GITHUB_HANDLE = 'partrima';
 const GITHUB_LINK = `https://github.com/${GITHUB_HANDLE}`;
-const OPENSEA_LINK = '';
-const TOTAL_MINT_COUNT = 50;
+// const OPENSEA_LINK = '';
+// const TOTAL_MINT_COUNT = 50;
 const CONTRACT_ADDRESS = "0x7684a9f86A36df980509C7C959CCaC8B3a189e0c";
 const App = () => {
   /*
@@ -141,11 +141,11 @@ const App = () => {
     </button>
   );
 
-  const renderMintUI = () => (
-    <button onClick={askContractToMintNft} className="cta-button connect-wallet-button">
-      Mint NFT
-    </button>
-  )
+  // const renderMintUI = () => (
+  //   <button onClick={askContractToMintNft} className="cta-button connect-wallet-button">
+  //     Mint NFT
+  //   </button>
+  // )
 
   return (
     <div className="App">
