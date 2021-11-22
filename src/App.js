@@ -9,7 +9,7 @@ const GITHUB_HANDLE = 'partrima';
 const GITHUB_LINK = `https://github.com/${GITHUB_HANDLE}`;
 // const OPENSEA_LINK = '';
 // const TOTAL_MINT_COUNT = 50;
-const CONTRACT_ADDRESS = "0x7684a9f86A36df980509C7C959CCaC8B3a189e0c";
+const CONTRACT_ADDRESS = "0x0ea5fD4AA08e9e8C5B9c6A8D87818e1D18985Cab";
 const App = () => {
   /*
      * Just a state variable we use to store our user's public wallet.
