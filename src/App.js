@@ -89,6 +89,7 @@ const App = () => {
         console.log("Ethereum object doesn't exist!");
       }
     } catch (error) {
+      alert(error)
       console.log(error)
     }
   }
